@@ -1,5 +1,7 @@
 .DS_Store
 node_modules/
+.next/
+.wrangler/
 .vinext/
 .open-next/
 dist/
