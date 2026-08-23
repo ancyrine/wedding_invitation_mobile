@@ -59,22 +59,22 @@ calendarButton?.addEventListener('click', () => {
   const calendar = [
     'BEGIN:VCALENDAR',
     'VERSION:2.0',
-    'PRODID:-//Juhyeon & Soyeon//Wedding//KO',
+    'PRODID:-//Soyeon & Juhyeon//Wedding//KO',
     'BEGIN:VEVENT',
-    'UID:wedding-20261121-juhyeon-soyeon',
+    'UID:wedding-20261121-soyeon-juhyeon',
     'DTSTAMP:20260823T113000Z',
     'DTSTART;TZID=Asia/Seoul:20261121T103000',
     'DTEND;TZID=Asia/Seoul:20261121T123000',
-    'SUMMARY:박주현 ♥ 김소연 결혼식',
+    'SUMMARY:김소연 ♥ 박주현 결혼식',
     'LOCATION:오드힐하우스\\, 서울 서초구 방배로 47',
-    'DESCRIPTION:박주현과 김소연의 결혼식에 초대합니다.',
+    'DESCRIPTION:김소연과 박주현의 결혼식에 초대합니다.',
     'END:VEVENT',
     'END:VCALENDAR'
   ].join('\r\n');
   const url = URL.createObjectURL(new Blob([calendar], { type: 'text/calendar;charset=utf-8' }));
   const anchor = document.createElement('a');
   anchor.href = url;
-  anchor.download = '박주현-김소연-결혼식.ics';
+  anchor.download = '김소연-박주현-결혼식.ics';
   anchor.click();
   URL.revokeObjectURL(url);
 });
@@ -82,7 +82,7 @@ calendarButton?.addEventListener('click', () => {
 shareButton?.addEventListener('click', async () => {
   const shareUrl = window.parent !== window ? window.parent.location.href : window.location.href;
   const data = {
-    title: '박주현 · 김소연의 결혼식',
+    title: '김소연 · 박주현의 결혼식',
     text: '2026년 11월 21일 토요일 오전 10시 30분, 오드힐하우스',
     url: shareUrl
   };
