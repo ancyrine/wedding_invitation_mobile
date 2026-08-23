@@ -1,0 +1,7 @@
+.DS_Store
+node_modules/
+.vinext/
+.open-next/
+dist/
+*.log
+images/hero-sample.png
