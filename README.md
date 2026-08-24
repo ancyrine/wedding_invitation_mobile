@@ -17,3 +17,11 @@ python3 -m http.server 4173
 ```
 
 브라우저에서 `http://localhost:4173`을 엽니다.
+
+## 종이 청첩장 QR
+
+- 연결 주소: `https://ancyrine.github.io/wedding_invitation_mobile/`
+- 인쇄용 벡터: `print/qr-wedding.svg`
+- 고해상도 이미지: `print/qr-wedding.png` (1176 × 1176px)
+- 권장 인쇄 크기: 최소 20 × 20mm, 검정색과 흰색 유지
+- QR 바깥의 흰 여백을 자르지 않습니다.
