@@ -72,8 +72,8 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .hero > * { position: relative; z-index: 1; }
 .hero-doodle { position: absolute; top: 27px; right: 54px; font: 39px "Nanum Pen Script", cursive; transform: rotate(-17deg); color: var(--green); }
 .hero-doodle::after { content: "♡"; position: absolute; right: -17px; top: 12px; font-size: 23px; color: var(--pink); }
-.hero .eyebrow { margin: 0 0 86px; font-family: "Schoolbell", cursive; font-size: clamp(27px, 8.2vw, 36px); line-height: 1.02; letter-spacing: .065em; transform: rotate(-1.4deg); }
-.hero-photo { width: min(72vw, 288px); aspect-ratio: 4 / 5; margin-inline: auto; padding: 9px 9px 25px; background: #fff; box-shadow: 0 13px 28px rgba(55,49,39,.14); transform: rotate(-1.1deg); }
+.hero .eyebrow { margin: 0 0 110px; font-family: "Schoolbell", cursive; font-size: clamp(27px, 8.2vw, 36px); line-height: 1.02; letter-spacing: .065em; transform: rotate(-1.4deg); }
+.hero-photo { width: min(100%, 288px); aspect-ratio: 4 / 5; margin-inline: auto; padding: 9px 9px 25px; background: #fff; box-shadow: 0 13px 28px rgba(55,49,39,.14); transform: rotate(-1.1deg); }
 .hero-photo img { width: 100%; height: 100%; display: block; object-fit: cover; filter: saturate(.86) contrast(.96); }
 .photo-tape { position: absolute; top: -11px; left: 50%; width: 76px; height: 22px; background: rgba(237,223,196,.66); transform: translateX(-50%) rotate(2deg); }
 .photo-heart { position: absolute; right: -21px; top: 39%; color: var(--pink); font: 50px "Nanum Pen Script", cursive; transform: rotate(12deg); text-shadow: 0 1px #fff; }
@@ -91,15 +91,14 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .couple .section-kicker { margin-bottom: 32px; }
 .couple-grid { position: relative; width: 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
 .person { min-width: 0; }
-.portrait-frame { position: relative; width: 100%; aspect-ratio: 4 / 5; padding: 8px; overflow: hidden; background: #fff; box-shadow: 0 9px 22px rgba(55,49,39,.13); }
+.portrait-frame { position: relative; width: 100%; aspect-ratio: 4 / 5; padding: 0; overflow: hidden; background: transparent; filter: drop-shadow(0 9px 11px rgba(55,49,39,.13)); }
 .groom-frame { transform: rotate(-1.8deg); }
 .bride-frame { transform: rotate(1.8deg); }
-.portrait-frame::before, .portrait-frame::after { content: ""; position: absolute; z-index: 2; top: 8px; bottom: 8px; width: 5px; background: repeating-linear-gradient(to bottom, rgba(255,255,255,.92) 0 5px, transparent 5px 12px); }
-.portrait-frame::before { left: 10px; }
-.portrait-frame::after { right: 10px; }
-.portrait-frame img { position: relative; z-index: 1; width: 100%; height: 100%; display: block; object-fit: cover; filter: saturate(.78) contrast(.94) sepia(.07); }
+.portrait-frame::before, .portrait-frame::after { content: none; }
+.portrait-frame img { position: relative; z-index: 1; width: 100%; height: 100%; display: block; object-fit: cover; filter: saturate(.78) contrast(.94) sepia(.07); -webkit-mask-image: linear-gradient(#000 0 0), repeating-linear-gradient(to bottom, #000 0 8px, transparent 8px 15px), repeating-linear-gradient(to bottom, #000 0 8px, transparent 8px 15px); -webkit-mask-position: center, left 5px top, right 5px top; -webkit-mask-size: 100% 100%, 7px 100%, 7px 100%; -webkit-mask-repeat: no-repeat; -webkit-mask-composite: xor, xor; mask-image: linear-gradient(#000 0 0), repeating-linear-gradient(to bottom, #000 0 8px, transparent 8px 15px), repeating-linear-gradient(to bottom, #000 0 8px, transparent 8px 15px); mask-position: center, left 5px top, right 5px top; mask-size: 100% 100%, 7px 100%, 7px 100%; mask-repeat: no-repeat; mask-composite: exclude, exclude; }
 .portrait-frame img.is-missing { display: none; }
-.portrait-placeholder { position: absolute; inset: 8px; display: grid; place-items: center; border: 1px dashed #cfc9bd; color: #9c968c; background: #efede6; font: 11px "Special Elite", monospace; }
+.portrait-placeholder { position: absolute; inset: 0; display: grid; place-items: center; border: 1px dashed #cfc9bd; color: #9c968c; background: #efede6; font: 11px "Special Elite", monospace; }
+.portrait-frame img.is-missing + .portrait-placeholder { display: grid; }
 .person-role { margin: 16px 0 3px; color: var(--muted); font-size: 10px; letter-spacing: .12em; }
 .person h3 { margin: 0; font-size: 24px; font-weight: 700; letter-spacing: .08em; }
 .person-family { margin: 5px -12px 0; font-size: 20px; line-height: 1.25; letter-spacing: -.075em; white-space: nowrap; }
@@ -196,10 +195,14 @@ button, a { -webkit-tap-highlight-color: transparent; }
   .invitation { border-radius: 2px; }
 }
 
+@media (max-width: 480px) and (hover: none) and (pointer: coarse) {
+  .hero .eyebrow { margin-bottom: 100px; font-size: 26px; }
+  .portrait-frame img { -webkit-mask: url("images/portrait-film-cutout.svg") center / 100% 100% no-repeat; mask: url("images/portrait-film-cutout.svg") center / 100% 100% no-repeat; }
+  .portrait-placeholder { display: none; }
+}
+
 @media (max-height: 740px) {
   .hero { padding-top: 30px; }
-  .hero .eyebrow { margin-bottom: 86px; font-size: 23px; }
-  .hero-photo { width: min(65vw, 250px); }
   .hero h1 { margin-top: 17px; }
 }
 
