@@ -10,9 +10,11 @@
 - 신랑 어린 시절 사진: `images/groom-childhood.png`
 - 신부 어린 시절 사진: `images/bride-childhood.png`
 - 오드힐하우스 스케치: `images/odehill-sketch.png`
-- 갤러리 사진: `images/gallery-01.jpg`부터 `images/gallery-06.jpg`까지
+- 갤러리 좌우 화살표: `images/gallery-arrow.png`
+- 갤러리 닫기 아이콘: `images/gallery-close.png`
+- 갤러리 사진: `images/gallery-01.jpg`부터 `images/gallery-18.jpg`까지
 
-갤러리는 01·06번을 가로형으로, 02~05번을 정사각형에 가깝게 보여 줍니다. 파일이 아직 없으면 해당 위치에 파일명 안내 카드가 표시됩니다.
+갤러리는 18장을 한 줄에 세 장씩 정사각형으로 보여 줍니다. 파일이 없으면 해당 위치에 파일명 안내 카드가 표시됩니다.
 
 ## 계좌번호 넣기
 

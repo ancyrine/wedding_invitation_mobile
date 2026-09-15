@@ -14,7 +14,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Gaegu:wght@400;700&family=Gowun+Batang:wght@400;700&family=Nanum+Pen+Script&family=Special+Elite&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Gaegu:wght@400;700&family=Gowun+Batang:wght@400;700&family=Gowun+Dodum&family=Nanum+Pen+Script&family=Special+Elite&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
@@ -67,7 +67,7 @@
             <p class="person-role typewriter">GROOM</p>
             <h3>박주현</h3>
             <p class="person-family">
-              <span>박기옥 · 김현정</span><small>의 장남</small>
+              <span>박기옥·김현정</span><small>의 장남</small>
             </p>
           </article>
           <article class="person">
@@ -78,15 +78,13 @@
                 data-placeholder="신부 사진"
               />
               <span class="portrait-placeholder">신부 사진</span>
-              <span class="portrait-doodle bride-doodle" aria-hidden="true">♕</span>
             </div>
             <p class="person-role typewriter">BRIDE</p>
             <h3>김소연</h3>
             <p class="person-family">
-              <span>김기범 · 서복남</span><small>의 장녀</small>
+              <span>김기범·서복남</span><small>의 장녀</small>
             </p>
           </article>
-          <span class="couple-heart" aria-hidden="true">♡</span>
         </div>
       </section>
 
@@ -170,7 +168,7 @@
         <p class="section-kicker typewriter">OUR MOMENTS</p>
         <h2 id="gallery-title" class="sr-only">우리의 순간</h2>
         <div class="gallery-grid">
-          <button class="gallery-item gallery-wide" type="button">
+          <button class="gallery-item" type="button">
             <img src="images/gallery-01.jpg" alt="웨딩 갤러리 사진 1" data-placeholder="gallery-01.jpg" />
             <span>gallery-01.jpg</span>
           </button>
@@ -190,9 +188,57 @@
             <img src="images/gallery-05.jpg" alt="웨딩 갤러리 사진 5" data-placeholder="gallery-05.jpg" />
             <span>gallery-05.jpg</span>
           </button>
-          <button class="gallery-item gallery-wide" type="button">
+          <button class="gallery-item" type="button">
             <img src="images/gallery-06.jpg" alt="웨딩 갤러리 사진 6" data-placeholder="gallery-06.jpg" />
             <span>gallery-06.jpg</span>
+          </button>
+          <button class="gallery-item" type="button">
+            <img src="images/gallery-07.jpg" alt="웨딩 갤러리 사진 7" data-placeholder="gallery-07.jpg" />
+            <span>gallery-07.jpg</span>
+          </button>
+          <button class="gallery-item" type="button">
+            <img src="images/gallery-08.jpg" alt="웨딩 갤러리 사진 8" data-placeholder="gallery-08.jpg" />
+            <span>gallery-08.jpg</span>
+          </button>
+          <button class="gallery-item" type="button">
+            <img src="images/gallery-09.jpg" alt="웨딩 갤러리 사진 9" data-placeholder="gallery-09.jpg" />
+            <span>gallery-09.jpg</span>
+          </button>
+          <button class="gallery-item" type="button">
+            <img src="images/gallery-10.jpg" alt="웨딩 갤러리 사진 10" data-placeholder="gallery-10.jpg" />
+            <span>gallery-10.jpg</span>
+          </button>
+          <button class="gallery-item" type="button">
+            <img src="images/gallery-11.jpg" alt="웨딩 갤러리 사진 11" data-placeholder="gallery-11.jpg" />
+            <span>gallery-11.jpg</span>
+          </button>
+          <button class="gallery-item" type="button">
+            <img src="images/gallery-12.jpg" alt="웨딩 갤러리 사진 12" data-placeholder="gallery-12.jpg" />
+            <span>gallery-12.jpg</span>
+          </button>
+          <button class="gallery-item" type="button">
+            <img src="images/gallery-13.jpg" alt="웨딩 갤러리 사진 13" data-placeholder="gallery-13.jpg" />
+            <span>gallery-13.jpg</span>
+          </button>
+          <button class="gallery-item" type="button">
+            <img src="images/gallery-14.jpg" alt="웨딩 갤러리 사진 14" data-placeholder="gallery-14.jpg" />
+            <span>gallery-14.jpg</span>
+          </button>
+          <button class="gallery-item" type="button">
+            <img src="images/gallery-15.jpg" alt="웨딩 갤러리 사진 15" data-placeholder="gallery-15.jpg" />
+            <span>gallery-15.jpg</span>
+          </button>
+          <button class="gallery-item" type="button">
+            <img src="images/gallery-16.jpg" alt="웨딩 갤러리 사진 16" data-placeholder="gallery-16.jpg" />
+            <span>gallery-16.jpg</span>
+          </button>
+          <button class="gallery-item" type="button">
+            <img src="images/gallery-17.jpg" alt="웨딩 갤러리 사진 17" data-placeholder="gallery-17.jpg" />
+            <span>gallery-17.jpg</span>
+          </button>
+          <button class="gallery-item" type="button">
+            <img src="images/gallery-18.jpg" alt="웨딩 갤러리 사진 18" data-placeholder="gallery-18.jpg" />
+            <span>gallery-18.jpg</span>
           </button>
         </div>
       </section>
@@ -234,8 +280,10 @@
       </footer>
     </main>
     <div class="lightbox" role="dialog" aria-label="사진 크게 보기" aria-hidden="true">
-      <button class="lightbox-close" type="button" aria-label="닫기">×</button>
+      <button class="lightbox-close" type="button" aria-label="닫기"></button>
+      <button class="lightbox-nav lightbox-prev" type="button" aria-label="이전 사진"></button>
       <img src="" alt="" />
+      <button class="lightbox-nav lightbox-next" type="button" aria-label="다음 사진"></button>
     </div>
     <div class="toast" role="status" aria-live="polite">주소를 복사했어요!</div>
     <script src="script.js"></script>

@@ -5,6 +5,10 @@ const shareButton = document.querySelector('.share-button');
 const lightbox = document.querySelector('.lightbox');
 const lightboxImage = lightbox?.querySelector('img');
 const lightboxClose = lightbox?.querySelector('.lightbox-close');
+const lightboxPrev = lightbox?.querySelector('.lightbox-prev');
+const lightboxNext = lightbox?.querySelector('.lightbox-next');
+const galleryItems = [...document.querySelectorAll('.gallery-item')];
+let currentGalleryIndex = 0;
 
 document.querySelectorAll('img[data-placeholder]').forEach((image) => {
   const markMissing = () => image.classList.add('is-missing');
@@ -28,24 +32,45 @@ function closeLightbox() {
   lightbox?.setAttribute('aria-hidden', 'true');
 }
 
-document.querySelectorAll('.gallery-item').forEach((item) => {
+function showGalleryImage(index) {
+  const availableItems = galleryItems.filter((item) => {
+    const image = item.querySelector('img');
+    return image && !image.classList.contains('is-missing');
+  });
+  if (!availableItems.length) return;
+
+  currentGalleryIndex = (index + availableItems.length) % availableItems.length;
+  const image = availableItems[currentGalleryIndex].querySelector('img');
+  lightboxImage.src = image.src;
+  lightboxImage.alt = image.alt;
+}
+
+galleryItems.forEach((item) => {
   item.addEventListener('click', () => {
     const image = item.querySelector('img');
     if (!image || image.classList.contains('is-missing')) return;
-    lightboxImage.src = image.src;
-    lightboxImage.alt = image.alt;
+    const availableItems = galleryItems.filter((galleryItem) => {
+      const galleryImage = galleryItem.querySelector('img');
+      return galleryImage && !galleryImage.classList.contains('is-missing');
+    });
+    showGalleryImage(availableItems.indexOf(item));
     lightbox?.classList.add('open');
     lightbox?.setAttribute('aria-hidden', 'false');
     lightboxClose?.focus();
   });
 });
 
+lightboxPrev?.addEventListener('click', () => showGalleryImage(currentGalleryIndex - 1));
+lightboxNext?.addEventListener('click', () => showGalleryImage(currentGalleryIndex + 1));
 lightboxClose?.addEventListener('click', closeLightbox);
 lightbox?.addEventListener('click', (event) => {
   if (event.target === lightbox) closeLightbox();
 });
 document.addEventListener('keydown', (event) => {
   if (event.key === 'Escape') closeLightbox();
+  if (!lightbox?.classList.contains('open')) return;
+  if (event.key === 'ArrowLeft') showGalleryImage(currentGalleryIndex - 1);
+  if (event.key === 'ArrowRight') showGalleryImage(currentGalleryIndex + 1);
 });
 
 async function copyText(value) {

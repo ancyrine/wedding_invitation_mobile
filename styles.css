@@ -100,16 +100,13 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .portrait-frame img { position: relative; z-index: 1; width: 100%; height: 100%; display: block; object-fit: cover; filter: saturate(.78) contrast(.94) sepia(.07); }
 .portrait-frame img.is-missing { display: none; }
 .portrait-placeholder { position: absolute; inset: 8px; display: grid; place-items: center; border: 1px dashed #cfc9bd; color: #9c968c; background: #efede6; font: 11px "Special Elite", monospace; }
-.portrait-doodle { position: absolute; z-index: 3; font-family: "Nanum Pen Script", cursive; text-shadow: 0 1px rgba(255,255,255,.8); }
-.bride-doodle { top: 8%; left: 50%; color: var(--yellow); font-size: 31px; transform: translateX(-50%) rotate(-9deg); }
-.person-role { margin: 21px 0 6px; color: var(--muted); font-size: 10px; letter-spacing: .12em; }
+.person-role { margin: 16px 0 3px; color: var(--muted); font-size: 10px; letter-spacing: .12em; }
 .person h3 { margin: 0; font-size: 24px; font-weight: 700; letter-spacing: .08em; }
-.person-family { margin: 11px 0 0; font-size: 14px; line-height: 1.65; }
-.person-family span { display: block; }
-.person-family small { color: var(--muted); font-size: 13px; }
-.couple-heart { position: absolute; top: 39%; left: 50%; z-index: 4; color: var(--pink); font: 34px "Nanum Pen Script", cursive; transform: translate(-50%, -50%) rotate(-8deg); text-shadow: 0 1px 2px #fff; }
+.person-family { margin: 5px -12px 0; font-size: 20px; line-height: 1.25; letter-spacing: -.075em; white-space: nowrap; }
+.person-family span { display: inline; }
+.person-family small { margin-left: 0; color: var(--muted); font-size: 20px; }
 
-.date-section h2 { margin: 0; font-family: "Special Elite", monospace; font-size: 31px; font-weight: 400; letter-spacing: .06em; }
+.date-section h2 { margin: 0; font-family: "Gaegu", cursive; font-size: 24px; font-weight: 700; letter-spacing: .01em; }
 .date-detail { margin: 14px 0 42px; font-size: 17px; }
 .calendar { width: 100%; max-width: 330px; padding: 24px 10px 20px; border-top: 1px dotted var(--muted); border-bottom: 1px dotted var(--muted); }
 .weekdays, .days { display: grid; grid-template-columns: repeat(7, 1fr); }
@@ -121,15 +118,14 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .wedding-day { color: #fff !important; z-index: 1; }
 .wedding-day::before { content: ""; position: absolute; width: 29px; height: 29px; background: var(--green); border-radius: 47% 53% 50% 46%; transform: rotate(-7deg); z-index: -1; }
 .wedding-day i { position: absolute; top: -16px; right: -4px; color: var(--pink); font: 22px "Nanum Pen Script"; transform: rotate(15deg); }
-.countdown { margin: 32px 0 0; min-height: 27px; font-family: "Special Elite", monospace; font-size: 13px; color: var(--green); }
+.countdown { margin: 32px 0 0; min-height: 27px; font-family: "Gaegu", cursive; font-size: 17px; font-weight: 700; color: var(--green); }
 .soft-button { margin-top: 18px; border: 1px dashed var(--line); border-radius: 48% 52% 46% 54%; background: rgba(255,255,255,.28); padding: 11px 19px; color: var(--ink); font: 15px "Gaegu", cursive; letter-spacing: .02em; cursor: pointer; transition: transform .2s, background .2s; }
 .soft-button:active { transform: scale(.97); background: #ece9e1; }
 
 .gallery { min-height: auto; padding-left: 22px; padding-right: 22px; }
 .gallery .section-kicker { margin-bottom: 35px; transform: rotate(-1deg); }
-.gallery-grid { width: 100%; display: grid; grid-template-columns: repeat(2, 1fr); gap: 9px; }
+.gallery-grid { width: 100%; display: grid; grid-template-columns: repeat(3, 1fr); gap: 7px; }
 .gallery-item { position: relative; aspect-ratio: 1; overflow: hidden; border: 0; padding: 0; background: #ebe8df; color: #9c968c; cursor: zoom-in; }
-.gallery-item.gallery-wide { grid-column: 1 / -1; aspect-ratio: 3 / 2; }
 .gallery-item img { position: relative; z-index: 1; width: 100%; height: 100%; display: block; object-fit: cover; filter: saturate(.84) contrast(.96); transition: transform .45s ease; }
 .gallery-item:hover img { transform: scale(1.025); }
 .gallery-item img.is-missing { display: none; }
@@ -139,22 +135,31 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .lightbox { position: fixed; inset: 0; z-index: 30; display: grid; place-items: center; padding: 28px; border: 0; background: rgba(31,30,28,.9); opacity: 0; pointer-events: none; transition: opacity .25s; }
 .lightbox.open { opacity: 1; pointer-events: auto; }
 .lightbox img { display: block; max-width: min(100%, 900px); max-height: 88svh; object-fit: contain; box-shadow: 0 14px 45px rgba(0,0,0,.25); }
-.lightbox-close { position: absolute; top: 18px; right: 18px; width: 40px; height: 40px; border: 1px solid rgba(255,255,255,.55); border-radius: 50%; background: rgba(0,0,0,.12); color: #fff; font-size: 23px; cursor: pointer; }
+.lightbox-close { position: absolute; z-index: 3; top: 15px; right: 15px; width: 50px; height: 50px; display: grid; place-items: center; padding: 0; border: 0; background: transparent; cursor: pointer; transition: transform .18s, opacity .18s; }
+.lightbox-close::before { content: ""; width: 42px; height: 42px; background: url("images/gallery-close.png") center / contain no-repeat; }
+.lightbox-close:active { transform: scale(.84) rotate(4deg); opacity: .7; }
+.lightbox-nav { position: absolute; z-index: 2; top: 50%; width: 68px; height: 68px; display: grid; place-items: center; padding: 0; border: 0; background: transparent; cursor: pointer; transition: transform .18s, opacity .18s; }
+.lightbox-nav::before { content: ""; width: 62px; height: 62px; background: url("images/gallery-arrow.png") center / contain no-repeat; }
+.lightbox-prev { left: 2px; transform: translateY(-50%); }
+.lightbox-prev::before { transform: scaleX(-1); }
+.lightbox-next { right: 2px; transform: translateY(-50%); }
+.lightbox-nav:active { transform: translateY(-50%) scale(.84); opacity: .7; }
 
-.location { padding: 72px 29px 78px; }
+.location, .gallery, .accounts, .footer { font-family: "Gowun Dodum", sans-serif; }
+.location { padding: 92px 29px; }
 .branch { margin: -16px 0 13px; color: var(--green); font-size: 24px; letter-spacing: -.2em; transform: rotate(-5deg); }
 .location .section-kicker { margin-bottom: 26px; }
 .venue-sketch { display: block; width: min(58%, 205px); height: auto; margin: 0 0 10px; object-fit: contain; }
 .location h3 { margin: 8px 0 1px; font-family: "Special Elite", monospace; font-weight: 400; font-size: 19px; }
 .venue-ko { margin: 0; font-size: 17px; letter-spacing: .12em; }
 .address { margin: 29px 0 11px; font-size: 14px; }
-.copy-button { border: 1px dashed var(--line); border-radius: 48% 52% 46% 54%; background: transparent; padding: 8px 15px; color: var(--muted); font: 14px "Gaegu", cursive; cursor: pointer; }
-.transport { width: 100%; margin-top: 34px; border-top: 1px dotted var(--muted); padding-top: 26px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; text-align: center; }
+.copy-button { border: 1px solid var(--line); border-radius: 0; background: transparent; padding: 8px 15px; color: var(--muted); font: 12px "Gowun Dodum", sans-serif; cursor: pointer; }
+.transport { width: 100%; margin-top: 34px; padding-top: 8px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; text-align: center; }
 .transport article { display: flex; min-width: 0; flex-direction: column; align-items: center; }
 .transport-icon { width: auto; min-height: 42px; display: block; border: 0; background: transparent; font-size: 34px; line-height: 1; }
 .transport p { margin: 11px 0 0; color: var(--muted); font-size: 14px; line-height: 1.55; }
 .map-links { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; width: 100%; margin-top: 30px; }
-.map-links a { padding: 13px 8px; border: 1px dashed var(--line); border-radius: 48% 52% 46% 54%; color: var(--ink); text-decoration: none; font-size: 15px; transition: .2s; }
+.map-links a { padding: 13px 8px; border: 1px solid var(--line); border-radius: 0; color: var(--ink); text-decoration: none; font-size: 13px; transition: .2s; }
 .map-links a:active { background: #ece9e1; transform: scale(.98); }
 
 .accounts { padding-left: 24px; padding-right: 24px; }
@@ -171,7 +176,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .account-card[open] summary i { transform: rotate(45deg); }
 .account-info { padding: 15px 12px 17px; border-top: 1px dotted var(--line); text-align: center; }
 .account-info p { margin: 0 0 12px; color: var(--muted); font-size: 11px; line-height: 1.6; }
-.account-copy { width: 100%; border: 1px dashed var(--line); background: transparent; padding: 9px 5px; color: var(--ink); font: 13px "Gaegu", cursive; cursor: pointer; }
+.account-copy { width: 100%; border: 1px dashed var(--line); background: transparent; padding: 9px 5px; color: var(--ink); font: 12px "Gowun Dodum", sans-serif; cursor: pointer; }
 .account-copy:disabled { color: #aaa69f; cursor: default; opacity: .7; }
 
 .footer { min-height: 70svh; }
@@ -179,7 +184,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .footer > .typewriter { margin: 16px 0 25px; font-size: 13px; letter-spacing: .16em; }
 .footer h2 { margin: 0; font-size: 31px; font-weight: 400; letter-spacing: .1em; }.footer h2 i { color: var(--green); font-style: normal; font-size: 22px; }
 .footer-date { margin: 18px 0 0; font-size: 13px; color: var(--muted); }
-.footer .share-button { margin-top: 35px; }
+.footer .share-button { margin-top: 35px; font-family: "Gowun Dodum", sans-serif; }
 
 .reveal { opacity: 0; transform: translateY(18px); transition: opacity .9s ease, transform .9s ease; }
 .reveal.visible { opacity: 1; transform: translateY(0); }
