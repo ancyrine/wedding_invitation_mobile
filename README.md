@@ -1,12 +1,22 @@
-# 김소연 · 박주현 모바일 청첩장
+# 박주현 · 김소연 모바일 청첩장
 
 `index.html`을 브라우저에서 열면 바로 확인할 수 있는 정적 웹사이트입니다.
 
-## 사진을 넣을 때
+## 사진 넣는 위치
 
-1. 메인 사진은 `images/hero-sample.jpg`와 같은 이름으로 교체합니다.
-2. 세로 4:5 비율의 사진이 가장 자연스럽게 보입니다.
-3. 갤러리 사진은 `images` 폴더에 넣은 뒤 `index.html`의 `gallery-coming` 영역을 교체합니다.
+사진은 모두 프로젝트의 `images` 폴더에 넣습니다. 파일명만 아래와 정확히 맞추면 페이지에 자동으로 표시됩니다.
+
+- 메인 사진: `images/hero-main.jpg` (세로 4:5 권장)
+- 신랑 어린 시절 사진: `images/groom-childhood.png`
+- 신부 어린 시절 사진: `images/bride-childhood.png`
+- 오드힐하우스 스케치: `images/odehill-sketch.png`
+- 갤러리 사진: `images/gallery-01.jpg`부터 `images/gallery-06.jpg`까지
+
+갤러리는 01·06번을 가로형으로, 02~05번을 정사각형에 가깝게 보여 줍니다. 파일이 아직 없으면 해당 위치에 파일명 안내 카드가 표시됩니다.
+
+## 계좌번호 넣기
+
+`index.html`의 `account-info` 두 곳에서 안내 문구를 실제 은행·계좌번호·예금주로 바꾸고, 같은 카드의 `data-copy=""`에 복사할 계좌번호를 입력한 뒤 `disabled`를 삭제합니다.
 
 현재 첨부된 종이 청첩장의 어린 시절 사진은 사용하지 않았습니다.
 

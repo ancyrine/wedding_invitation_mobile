@@ -1,13 +1,15 @@
-const scrollButton = document.querySelector('.scroll-cue');
-const greeting = document.querySelector('.greeting');
 const copyButton = document.querySelector('.copy-button');
 const toast = document.querySelector('.toast');
 const countdown = document.querySelector('#countdown');
-const calendarButton = document.querySelector('.calendar-button');
 const shareButton = document.querySelector('.share-button');
+const lightbox = document.querySelector('.lightbox');
+const lightboxImage = lightbox?.querySelector('img');
+const lightboxClose = lightbox?.querySelector('.lightbox-close');
 
-scrollButton?.addEventListener('click', () => {
-  greeting?.scrollIntoView({ behavior: 'smooth' });
+document.querySelectorAll('img[data-placeholder]').forEach((image) => {
+  const markMissing = () => image.classList.add('is-missing');
+  image.addEventListener('error', markMissing);
+  if (image.complete && image.naturalWidth === 0) markMissing();
 });
 
 const observer = new IntersectionObserver(
@@ -20,6 +22,31 @@ const observer = new IntersectionObserver(
 );
 
 document.querySelectorAll('.reveal').forEach((element) => observer.observe(element));
+
+function closeLightbox() {
+  lightbox?.classList.remove('open');
+  lightbox?.setAttribute('aria-hidden', 'true');
+}
+
+document.querySelectorAll('.gallery-item').forEach((item) => {
+  item.addEventListener('click', () => {
+    const image = item.querySelector('img');
+    if (!image || image.classList.contains('is-missing')) return;
+    lightboxImage.src = image.src;
+    lightboxImage.alt = image.alt;
+    lightbox?.classList.add('open');
+    lightbox?.setAttribute('aria-hidden', 'false');
+    lightboxClose?.focus();
+  });
+});
+
+lightboxClose?.addEventListener('click', closeLightbox);
+lightbox?.addEventListener('click', (event) => {
+  if (event.target === lightbox) closeLightbox();
+});
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape') closeLightbox();
+});
 
 async function copyText(value) {
   try {
@@ -55,34 +82,20 @@ function renderCountdown() {
 
 renderCountdown();
 
-calendarButton?.addEventListener('click', () => {
-  const calendar = [
-    'BEGIN:VCALENDAR',
-    'VERSION:2.0',
-    'PRODID:-//Soyeon & Juhyeon//Wedding//KO',
-    'BEGIN:VEVENT',
-    'UID:wedding-20261121-soyeon-juhyeon',
-    'DTSTAMP:20260823T113000Z',
-    'DTSTART;TZID=Asia/Seoul:20261121T103000',
-    'DTEND;TZID=Asia/Seoul:20261121T123000',
-    'SUMMARY:김소연 ♥ 박주현 결혼식',
-    'LOCATION:오드힐하우스\\, 서울 서초구 방배로 47',
-    'DESCRIPTION:김소연과 박주현의 결혼식에 초대합니다.',
-    'END:VEVENT',
-    'END:VCALENDAR'
-  ].join('\r\n');
-  const url = URL.createObjectURL(new Blob([calendar], { type: 'text/calendar;charset=utf-8' }));
-  const anchor = document.createElement('a');
-  anchor.href = url;
-  anchor.download = '김소연-박주현-결혼식.ics';
-  anchor.click();
-  URL.revokeObjectURL(url);
+document.querySelectorAll('.account-copy').forEach((button) => {
+  button.addEventListener('click', async () => {
+    if (!button.dataset.copy) return;
+    await copyText(button.dataset.copy);
+    toast.textContent = '계좌번호를 복사했어요!';
+    toast.classList.add('show');
+    window.setTimeout(() => toast.classList.remove('show'), 1800);
+  });
 });
 
 shareButton?.addEventListener('click', async () => {
   const shareUrl = window.parent !== window ? window.parent.location.href : window.location.href;
   const data = {
-    title: '김소연 · 박주현의 결혼식',
+    title: '박주현 · 김소연의 결혼식',
     text: '2026년 11월 21일 토요일 오전 10시 30분, 오드힐하우스',
     url: shareUrl
   };
