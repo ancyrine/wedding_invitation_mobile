@@ -6,6 +6,8 @@
 
 사진은 모두 프로젝트의 `images` 폴더에 넣습니다. 파일명만 아래와 정확히 맞추면 페이지에 자동으로 표시됩니다.
 
+페이지에 사용하는 사진은 모바일 로딩을 위해 긴 변 1800px 이하로 저장합니다. 고해상도 원본은 Git에 포함되지 않는 `photo-originals` 폴더에 보관합니다.
+
 - 메인 사진: `images/hero-main.jpg` (세로 4:5 권장)
 - 신랑 어린 시절 사진: `images/groom-childhood.png`
 - 신부 어린 시절 사진: `images/bride-childhood.png`
