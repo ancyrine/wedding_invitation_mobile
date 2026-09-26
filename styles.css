@@ -173,8 +173,13 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .account-card summary strong { grid-column: 1; font-size: 16px; font-weight: 400; letter-spacing: .08em; }
 .account-card summary i { grid-column: 2; grid-row: 1 / 3; align-self: center; color: var(--green); font-style: normal; font-size: 19px; transition: transform .2s; }
 .account-card[open] summary i { transform: rotate(45deg); }
-.account-info { padding: 15px 12px 17px; border-top: 1px dotted var(--line); text-align: center; }
-.account-info p { margin: 0 0 12px; color: var(--muted); font-size: 11px; line-height: 1.6; }
+.account-info { padding: 4px 12px 8px; border-top: 1px dotted var(--line); text-align: center; }
+.account-entry { padding: 12px 0; }
+.account-entry + .account-entry { border-top: 1px dotted var(--line); }
+.account-info p { margin: 0 0 9px; color: var(--muted); font-size: 11px; line-height: 1.55; }
+.account-info p span, .account-info p strong { display: block; }
+.account-info p span { color: var(--ink); font-size: 12px; }
+.account-info p strong { margin: 3px 0 1px; font-weight: 400; }
 .account-copy { width: 100%; border: 1px dashed var(--line); background: transparent; padding: 9px 5px; color: var(--ink); font: 12px "Gowun Dodum", sans-serif; cursor: pointer; }
 .account-copy:disabled { color: #aaa69f; cursor: default; opacity: .7; }
 
@@ -196,7 +201,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
 }
 
 @media (max-width: 480px) and (hover: none) and (pointer: coarse) {
-  .hero .eyebrow { margin-bottom: 100px; font-size: 26px; }
+  .hero .eyebrow { margin-bottom: 90px; font-size: 26px; }
   .portrait-frame img { -webkit-mask: url("images/portrait-film-cutout.svg") center / 100% 100% no-repeat; mask: url("images/portrait-film-cutout.svg") center / 100% 100% no-repeat; }
   .portrait-placeholder { display: none; }
 }
